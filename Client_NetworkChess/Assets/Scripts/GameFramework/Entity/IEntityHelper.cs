@@ -1,0 +1,30 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: GameFramework.Entity.IEntityHelper
+// Assembly: GameFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: CA300501-4AB4-4423-A8EA-E080265B9678
+// Assembly location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.dll
+// XML documentation location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.xml
+
+namespace GameFramework.Entity
+{
+  /// <summary>实体辅助器接口。</summary>
+  public interface IEntityHelper
+  {
+    /// <summary>实例化实体。</summary>
+    /// <param name="entityAsset">要实例化的实体资源。</param>
+    /// <returns>实例化后的实体。</returns>
+    object InstantiateEntity(object entityAsset);
+
+    /// <summary>创建实体。</summary>
+    /// <param name="entityInstance">实体实例。</param>
+    /// <param name="entityGroup">实体所属的实体组。</param>
+    /// <param name="userData">用户自定义数据。</param>
+    /// <returns>实体。</returns>
+    IEntity CreateEntity(object entityInstance, IEntityGroup entityGroup, object userData);
+
+    /// <summary>释放实体。</summary>
+    /// <param name="entityAsset">要释放的实体资源。</param>
+    /// <param name="entityInstance">要释放的实体实例。</param>
+    void ReleaseEntity(object entityAsset, object entityInstance);
+  }
+}

@@ -1,0 +1,32 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: GameFramework.WebRequest.WebRequestAgentHelperErrorEventArgs
+// Assembly: GameFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: CA300501-4AB4-4423-A8EA-E080265B9678
+// Assembly location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.dll
+// XML documentation location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.xml
+
+namespace GameFramework.WebRequest
+{
+  /// <summary>Web 请求代理辅助器错误事件。</summary>
+  public sealed class WebRequestAgentHelperErrorEventArgs : GameFrameworkEventArgs
+  {
+    /// <summary>初始化 Web 请求代理辅助器错误事件的新实例。</summary>
+    public WebRequestAgentHelperErrorEventArgs() => this.ErrorMessage = (string) null;
+
+    /// <summary>获取错误信息。</summary>
+    public string ErrorMessage { get; private set; }
+
+    /// <summary>创建 Web 请求代理辅助器错误事件。</summary>
+    /// <param name="errorMessage">错误信息。</param>
+    /// <returns>创建的 Web 请求代理辅助器错误事件。</returns>
+    public static WebRequestAgentHelperErrorEventArgs Create(string errorMessage)
+    {
+      WebRequestAgentHelperErrorEventArgs helperErrorEventArgs = ReferencePool.Acquire<WebRequestAgentHelperErrorEventArgs>();
+      helperErrorEventArgs.ErrorMessage = errorMessage;
+      return helperErrorEventArgs;
+    }
+
+    /// <summary>清理 Web 请求代理辅助器错误事件。</summary>
+    public override void Clear() => this.ErrorMessage = (string) null;
+  }
+}

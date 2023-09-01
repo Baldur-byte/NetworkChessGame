@@ -1,0 +1,36 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: GameFramework.ITaskAgent`1
+// Assembly: GameFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: CA300501-4AB4-4423-A8EA-E080265B9678
+// Assembly location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.dll
+// XML documentation location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.xml
+
+namespace GameFramework
+{
+  /// <summary>任务代理接口。</summary>
+  /// <typeparam name="T">任务类型。</typeparam>
+  internal interface ITaskAgent<T> where T : TaskBase
+  {
+    /// <summary>获取任务。</summary>
+    T Task { get; }
+
+    /// <summary>初始化任务代理。</summary>
+    void Initialize();
+
+    /// <summary>任务代理轮询。</summary>
+    /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
+    /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+    void Update(float elapseSeconds, float realElapseSeconds);
+
+    /// <summary>关闭并清理任务代理。</summary>
+    void Shutdown();
+
+    /// <summary>开始处理任务。</summary>
+    /// <param name="task">要处理的任务。</param>
+    /// <returns>开始处理任务的状态。</returns>
+    StartTaskStatus Start(T task);
+
+    /// <summary>停止正在处理的任务并重置任务代理。</summary>
+    void Reset();
+  }
+}
