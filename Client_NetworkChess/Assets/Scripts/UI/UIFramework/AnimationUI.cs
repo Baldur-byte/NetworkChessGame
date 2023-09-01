@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using ShineEngine;
 
 namespace UIFramework
 {
@@ -85,7 +84,7 @@ namespace UIFramework
             AnimationClip[] tAnimationClips = AnimTool.GetAnimationClip(mAnimator);
             if(tAnimationClips == null || tAnimationClips.Length == 0)
             {
-                Log.errorLog(name + " animator controller doesn't contain animation clips.");
+                Debug.LogError(name + " animator controller doesn't contain animation clips.");
                 return false;
             }
 

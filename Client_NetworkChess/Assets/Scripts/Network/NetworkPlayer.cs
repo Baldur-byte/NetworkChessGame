@@ -3,11 +3,10 @@ using UnityEngine;
 using Multiplay;
 
 //一个游戏客户端只能存在一个网络玩家
-public class NetworkPlayer : MonoBehaviour 
+public class NetworkPlayer : MonoSingleton<NetworkPlayer>
 {
     //单例
     private NetworkPlayer() { }
-    public static NetworkPlayer Instance { get; private set; }
 
     [HideInInspector]
     public Chess Chess;    //棋子类型
@@ -23,11 +22,8 @@ public class NetworkPlayer : MonoBehaviour
     public Action<Chess> OnStartGame;   //开始游戏
     public Action<string> OnNameChange;     //名字改变
 
-    private void Awake()
+    private void Init()
     {
-        if(Instance == null) 
-            Instance = this;
-
         OnRoomIdChange += (roomId) => RoomId = roomId;
 
         OnPlayingChange += (playing) => Playing = playing;

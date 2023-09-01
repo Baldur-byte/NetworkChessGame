@@ -1,0 +1,32 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: GameFramework.Network.NetworkErrorCode
+// Assembly: GameFramework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: CA300501-4AB4-4423-A8EA-E080265B9678
+// Assembly location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.dll
+// XML documentation location: D:\ProjectWorkspace\Test\NetworkChess\Client_NetworkChess\Assets\ThirdPart\UnityGameFramework-master\Libraries\GameFramework.xml
+
+namespace GameFramework.Network
+{
+  /// <summary>网络错误码。</summary>
+  public enum NetworkErrorCode : byte
+  {
+    /// <summary>未知错误。</summary>
+    Unknown,
+    /// <summary>地址族错误。</summary>
+    AddressFamilyError,
+    /// <summary>Socket 错误。</summary>
+    SocketError,
+    /// <summary>连接错误。</summary>
+    ConnectError,
+    /// <summary>发送错误。</summary>
+    SendError,
+    /// <summary>接收错误。</summary>
+    ReceiveError,
+    /// <summary>序列化错误。</summary>
+    SerializeError,
+    /// <summary>反序列化消息包头错误。</summary>
+    DeserializePacketHeaderError,
+    /// <summary>反序列化消息包错误。</summary>
+    DeserializePacketError,
+  }
+}

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using ShineEngine;
 using System.Collections.Generic;
 
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
@@ -39,7 +38,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else if(instance != this)
         {
-            Log.errorLog("The class already has an instance. ");
+            Debug.LogError("The class already has an instance. ");
             DestroyImmediate(this);
         }
     }
@@ -58,7 +57,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else if (instance != this)
         {
-            Log.errorLog("The class already has an instance. ");
+            Debug.LogError("The class already has an instance. ");
             DestroyImmediate(this);
         }
     }

@@ -39,16 +39,5 @@ namespace UIFramework
         protected virtual void OnClosed() { }
 
         protected virtual void OnReopen() { }
-
-        protected virtual void SetMainUIButtons(string InParams)
-        {
-            if(string.IsNullOrEmpty(InParams))
-                return;
-
-            string[] splitString = InParams.Split('&');
-            bool[] buttonsActive = new bool[6];
-            for (int i = 0; i < splitString.Length && i < buttonsActive.Length; i ++)
-                buttonsActive[i] = true;
-        }
     }
 }
