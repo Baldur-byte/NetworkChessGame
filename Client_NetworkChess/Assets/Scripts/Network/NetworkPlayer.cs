@@ -3,9 +3,25 @@ using UnityEngine;
 using Multiplay;
 
 //一个游戏客户端只能存在一个网络玩家
-public class NetworkPlayer : MonoSingleton<NetworkPlayer>
+public class NetworkPlayer : MonoBehaviour
 {
     //单例
+    private static NetworkPlayer instance;
+    public static NetworkPlayer Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<NetworkPlayer>();
+                if (instance == null)
+                {
+                    instance = new GameObject("NetworkPlayer").AddComponent<NetworkPlayer>();
+                }
+            }
+            return instance;
+        }
+    }
     private NetworkPlayer() { }
 
     [HideInInspector]

@@ -318,6 +318,8 @@ namespace UnityGameFramework.Runtime
             Transform transform = uiGroupHelper.transform;
             transform.SetParent(m_InstanceRoot);
             transform.localScale = Vector3.one;
+            //修改
+            transform.localPosition = Vector3.zero;
 
             return m_UIManager.AddUIGroup(uiGroupName, depth, uiGroupHelper);
         }

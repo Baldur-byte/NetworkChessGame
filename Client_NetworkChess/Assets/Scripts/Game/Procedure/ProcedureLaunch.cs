@@ -17,7 +17,7 @@ namespace NetworkChess
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            GameEntry.Scene.LoadScene(SceneAssetName.Login);
+            GameRuntime.UI.OpenUIForm(UIFormAssetName.GameEntryForm, UIGroupName.Default);
         }
 
         // 每次轮询执行。
