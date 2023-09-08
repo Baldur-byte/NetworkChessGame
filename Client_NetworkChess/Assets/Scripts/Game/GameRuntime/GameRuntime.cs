@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NetworkChess
+namespace Game
 {
     /// <summary>
     /// 游戏入口

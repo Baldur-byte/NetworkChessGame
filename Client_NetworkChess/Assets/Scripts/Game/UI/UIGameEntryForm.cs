@@ -1,4 +1,4 @@
-using NetworkChess;
+using Game;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
@@ -60,8 +60,8 @@ public class UIGameEntryForm : UIFormLogic
         m_slider.value += elapseSeconds / 100;
         if(m_slider.value >=1)
         {
-            GameRuntime.Scene.LoadScene(SceneAssetName.Login);
-            GameRuntime.UI.OpenUIForm(UIFormAssetName.LoginForm, UIGroupName.Default);
+            //GameRuntime.Scene.LoadScene(SceneAssetName.Login);
+            //GameRuntime.UI.OpenUIForm(UIFormAssetName.LoginForm, UIGroupName.Default);
         }
     }
 
