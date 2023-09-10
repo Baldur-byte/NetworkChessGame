@@ -1,4 +1,4 @@
-using GameFramework.Event;
+ï»¿using GameFramework.Event;
 using GameFramework.Procedure;
 using System.Runtime.CompilerServices;
 using UnityGameFramework.Runtime;
@@ -23,27 +23,27 @@ namespace Game
             GameRuntime.Event.Subscribe(LoadSceneUpdateEventArgs.EventId, OnLoadSceneUpdate);
             GameRuntime.Event.Subscribe(LoadSceneDependencyAssetEventArgs.EventId, OnLoadSceneDependencyAsset);
 
-            //Í£Ö¹ËùÓĞÉùÒô
+            //åœæ­¢æ‰€æœ‰å£°éŸ³
             GameRuntime.Sound.StopAllLoadingSounds();
             GameRuntime.Sound.StopAllLoadedSounds();
 
-            //Òş²ØËùÓĞÊµÌå
+            //éšè—æ‰€æœ‰å®ä½“
             GameRuntime.Entity.HideAllLoadingEntities();
             GameRuntime.Entity.HideAllLoadedEntities();
 
-            //Ğ¶ÔØËùÓĞ³¡¾°
+            //å¸è½½æ‰€æœ‰åœºæ™¯
             string[] loadedSceneAssetNames = GameRuntime.Scene.GetLoadedSceneAssetNames();
             for(int i = 0; i < loadedSceneAssetNames.Length; i++)
             {
                 GameRuntime.Scene.UnloadScene(loadedSceneAssetNames[i]);
             }
 
-            //»¹Ô­ÓÎÏ·ËÙ¶È
+            //è¿˜åŸæ¸¸æˆé€Ÿåº¦
             GameRuntime.Base.ResetNormalGameSpeed();
 
             m_TargetSceneType = (SceneType)procedureOwner.GetData<VarInt32>(Constant.FsmDataKey.NextSceneId).Value;
 
-            //¼ÓÔØ³¡¾°
+            //åŠ è½½åœºæ™¯
             GameRuntime.Scene.LoadScene(AssetUtility.GetSceneAsset(m_TargetSceneType.ToString()), Constant.AssetPriority.SceneAsset, this);
         }
 

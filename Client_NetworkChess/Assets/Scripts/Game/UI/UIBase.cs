@@ -3,7 +3,7 @@ using UnityGameFramework.Runtime;
 
 namespace Game
 {
-    public class UIBaseLogic : UIFormLogic
+    public class UIBase : UIFormLogic
     {
         public const int DepthFactor = 100;
         private const float FadeTime = 0.3f;
@@ -26,9 +26,14 @@ namespace Game
             }
         }
 
-        public void Close()
+        public void Close(bool ignoreFade = true)
         {
+            StopAllCoroutines();
 
+            if(ignoreFade)
+            {
+                GameRuntime.UI.CloseUIForm(this);
+            }
         }
     }
 }

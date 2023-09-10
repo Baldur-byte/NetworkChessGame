@@ -1,4 +1,4 @@
-using GameFramework.Procedure;
+ï»¿using GameFramework.Procedure;
 using GameFramework.Resource;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
@@ -11,24 +11,24 @@ namespace Game
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            // TODO: ÕâÀï¿ÉÒÔ²¥·ÅÒ»¸ö Splash ¶¯»­
+            // TODO: è¿™é‡Œå¯ä»¥æ’­æ”¾ä¸€ä¸ª Splash åŠ¨ç”»
             // ...
 
             if (GameRuntime.Base.EditorResourceMode)
             {
-                // ±à¼­Æ÷Ä£Ê½
+                // ç¼–è¾‘å™¨æ¨¡å¼
                 Log.Info("Editor resource mode detected.");
                 ChangeState<ProcedurePreload>(procedureOwner);
             }
             else if (GameRuntime.Resource.ResourceMode == ResourceMode.Package)
             {
-                // µ¥»úÄ£Ê½
+                // å•æœºæ¨¡å¼
                 Log.Info("Package resource mode detected.");
                 //ChangeState<ProcedureInitResources>(procedureOwner);
             }
             else
             {
-                // ¿É¸üĞÂÄ£Ê½
+                // å¯æ›´æ–°æ¨¡å¼
                 Log.Info("Updatable resource mode detected.");
                 //ChangeState<ProcedureCheckVersion>(procedureOwner);
             }

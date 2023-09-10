@@ -1,24 +1,24 @@
-namespace Game
+锘縩amespace Game
 {
     public enum SceneType : byte
     {
         /// <summary>
-        /// 无效场景
+        /// 鏃犳晥鍦烘櫙
         /// </summary>
         None = 0,
 
         /// <summary>
-        /// 登录场景
+        /// 鐧诲綍鍦烘櫙
         /// </summary>
         Login,
 
         /// <summary>
-        /// 大厅场景
+        /// 澶у巺鍦烘櫙
         /// </summary>
         Lobby,
 
         /// <summary>
-        /// 游戏场景
+        /// 娓告垙鍦烘櫙
         /// </summary>
         Game,
     }
