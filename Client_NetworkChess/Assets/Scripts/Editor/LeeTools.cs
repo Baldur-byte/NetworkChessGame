@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System;
 using Object = UnityEngine.Object;
-using UnityEditor.Experimental.GraphView;
+using Path = System.IO.Path;
 
 namespace LeeTools
 {
@@ -37,7 +37,7 @@ namespace LeeTools
                 // 获取选定对象的相对路径
                 string relativeAssetPath = AssetDatabase.GetAssetPath(selectedObject);
                 // 获取项目根目录路径
-                string projectPath = Path.GetDirectoryName(Application.dataPath);
+                string projectPath = System.IO.Path.GetDirectoryName(Application.dataPath);
                 // 获取选定对象的绝对路径
                 string absoluteAssetPath = Path.Combine(projectPath, relativeAssetPath);
                 // 获取选定对象的文件名（包括后缀）
@@ -105,16 +105,24 @@ namespace LeeTools
     /// <summary>
     /// 修改新建脚本中的指定信息
     /// </summary>
-    public class AddScriptsInfo// : UnityEditor.AssetModificationProcessor
+    public class AddScriptsInfo : UnityEditor.AssetModificationProcessor
     {
+        private static string scriptName = "#SCRIPTNAME#"; //脚本名字
+        private static string authorName = "#CreateAuthor#"; //作者名字
+        private static string device = "#Device#"; //设备
+        private static string email = "346679447@qq.com"; //"#Email#"; //邮箱
+        private static string createTime = "#CreateTime#"; //创建时间
+        private static string header =
+            "/*@LeeTools\n**********************************************************\n";
         private static string fileDescribe =
-            "/**********************************************************\n" +
-            "文件：#SCRIPTNAME#\n" +
-            "作者：#CreateAuthor#\n" +
-            "邮箱：#Email#\n" +
-            "日期：#CreateTime#\n" +
+            header +
+            "文件：" + scriptName + "\n" +
+            "作者：" + authorName + "\n" +
+            "设备：" + device + "\n" +
+            "邮件：" + email + "\n" +
+            "日期：" + createTime + "\n" +
             "功能：Nothing\n" +
-            "/**********************************************************/\n\n";
+            "**********************************************************/\n\n";
 
         /// <summary>
         /// 在创建资源的时候执行的函数
@@ -122,37 +130,27 @@ namespace LeeTools
         /// <param name="path">脚本路径</param>
         private static void OnWillCreateAsset(string path)
         {
+            if (!path.EndsWith(".cs.meta"))
+            {
+                return;
+            }
             //将.meta文件屏蔽，避免获取到.meta文件
             path = path.Replace(".meta", "");
 
             //只对.cs文件操作
             if (path.EndsWith(".cs") == true)
             {
-                //文件名的分割获取
-                string[] iterm = path.Split('/');
-
-                string str = fileDescribe;
-
-                //读取改路径该路径下的.cs文件中的所有脚本
-                str += File.ReadAllText(path);
-
-                //进行关键字文件名，作者和时间获取并替换
-                str = str.Replace("#SCRIPTNAME#", iterm[iterm.Length - 1]).Replace("#CreateAuthor#", Environment.UserName).Replace("#CreateTime#", string.Format("{0:0000}/{1:00}/{2:00} {3:00}:{4:00}:{5:00}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second));
-
-                //重新写入脚本
-                File.WriteAllText(path, str);
-                AssetDatabase.Refresh();
-                Debug.Log("Scripts add Note Finish!");
+                addNoteToFile(path);
             }
         }
 
         [MenuItem("Assets/Note Scripts", false, 100)]
-        public static void AddScripts()
+        public static void AddNote()
         {
             string filepath = Utility.GetFilePath();
             if (!string.IsNullOrEmpty(filepath))
             {
-                OnWillCreateAsset(filepath);
+                addNoteToFile(filepath);
             }
         }
 
@@ -161,6 +159,27 @@ namespace LeeTools
         {
             return Selection.activeObject != null;
         }
-    }
 
+        private static void addNoteToFile(string path)
+        {
+            //文件名的分割获取
+            string[] iterm = path.Split('/');
+
+            string content = File.ReadAllText(path);
+            if (content.StartsWith(header))
+            {
+                return;
+            }
+            //读取改路径该路径下的.cs文件中的所有脚本
+            string str = fileDescribe + content;
+
+            //进行关键字文件名，作者和时间获取并替换
+            str = str.Replace(scriptName, iterm[iterm.Length - 1]).Replace(authorName, Environment.UserName).Replace(device, Environment.UserDomainName).Replace("#CreateTime#", string.Format("{0:0000}/{1:00}/{2:00} {3:00}:{4:00}:{5:00}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second));
+
+            //重新写入脚本
+            File.WriteAllText(path, str);
+            AssetDatabase.Refresh();
+            Debug.Log("Scripts add Note Finish!");
+        }
+    }
 }
