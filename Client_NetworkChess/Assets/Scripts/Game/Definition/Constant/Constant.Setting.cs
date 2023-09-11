@@ -1,3 +1,13 @@
+﻿//@LeeTools
+//------------------------
+//Filename：Constant.Setting.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 20:25:27
+//Function：Nothing
+//------------------------
+
 namespace Game
 {
     public static partial class Constant

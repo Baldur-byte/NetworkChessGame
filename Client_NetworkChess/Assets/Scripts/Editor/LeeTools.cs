@@ -113,16 +113,16 @@ namespace LeeTools
         private static string email = "346679447@qq.com"; //"#Email#"; //邮箱
         private static string createTime = "#CreateTime#"; //创建时间
         private static string header =
-            "/*@LeeTools\n**********************************************************\n";
+            "//@LeeTools\n//------------------------\n";
         private static string fileDescribe =
             header +
-            "文件：" + scriptName + "\n" +
-            "作者：" + authorName + "\n" +
-            "设备：" + device + "\n" +
-            "邮件：" + email + "\n" +
-            "日期：" + createTime + "\n" +
-            "功能：Nothing\n" +
-            "**********************************************************/\n\n";
+            "//Filename：" + scriptName + "\n" +
+            "//Auther：" + authorName + "\n" +
+            "//Device：" + device + "\n" +
+            "//Email：" + email + "\n" +
+            "//CreateDate：" + createTime + "\n" +
+            "//Function：Nothing\n" +
+            "//------------------------\n\n";
 
         /// <summary>
         /// 在创建资源的时候执行的函数
@@ -165,7 +165,7 @@ namespace LeeTools
             //文件名的分割获取
             string[] iterm = path.Split('/');
 
-            string content = File.ReadAllText(path);
+            string content = File.ReadAllText(path, Encoding.GetEncoding("GB2312"));
             if (content.StartsWith(header))
             {
                 return;
@@ -177,7 +177,7 @@ namespace LeeTools
             str = str.Replace(scriptName, iterm[iterm.Length - 1]).Replace(authorName, Environment.UserName).Replace(device, Environment.UserDomainName).Replace("#CreateTime#", string.Format("{0:0000}/{1:00}/{2:00} {3:00}:{4:00}:{5:00}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second));
 
             //重新写入脚本
-            File.WriteAllText(path, str);
+            File.WriteAllText(path, str, Encoding.UTF8);
             AssetDatabase.Refresh();
             Debug.Log("Scripts add Note Finish!");
         }

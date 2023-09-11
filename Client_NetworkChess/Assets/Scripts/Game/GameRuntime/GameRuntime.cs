@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿//@LeeTools
+//------------------------
+//Filename：GameRuntime.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 20:23:08
+//Function：Nothing
+//------------------------
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

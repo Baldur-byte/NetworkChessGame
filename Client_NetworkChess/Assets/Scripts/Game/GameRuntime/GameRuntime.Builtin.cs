@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿//@LeeTools
+//------------------------
+//Filename：GameRuntime.Builtin.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 20:23:16
+//Function：Nothing
+//------------------------
+
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace Game

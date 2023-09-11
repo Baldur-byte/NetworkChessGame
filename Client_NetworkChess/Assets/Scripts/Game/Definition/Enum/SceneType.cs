@@ -1,4 +1,14 @@
-﻿namespace Game
+﻿//@LeeTools
+//------------------------
+//Filename：SceneType.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 20:24:36
+//Function：Nothing
+//------------------------
+
+namespace Game
 {
     public enum SceneType : byte
     {

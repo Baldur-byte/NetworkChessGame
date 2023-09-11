@@ -1,9 +1,19 @@
+﻿//@LeeTools
+//------------------------
+//Filename：Constant.AssetPriority.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 16:01:08
+//Function：Nothing
+//------------------------
+
 namespace Game
 {
     public static partial class Constant
     {
         /// <summary>
-        /// ��Դ���ȼ�
+        /// 资源优先级
         /// </summary>
         public static class AssetPriority
         {

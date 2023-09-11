@@ -1,6 +1,15 @@
+﻿//@LeeTools
+//------------------------
+//Filename：ProcedurePreload.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 18:24:19
+//Function：Nothing
+//------------------------
+
 using GameFramework;
 using GameFramework.Event;
-using GameFramework.Procedure;
 using GameFramework.Resource;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +25,8 @@ namespace Game
         };
 
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();
+
+        public override bool UseNativeDialog => true;
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
@@ -63,19 +74,19 @@ namespace Game
         private void PreloadResources()
         {
             // Preload configs
-            LoadConfig("DefaultConfig");
+            //LoadConfig("DefaultConfig");
 
             // Preload data tables
             foreach (string dataTableName in DataTableNames)
             {
-                LoadDataTable(dataTableName);
+                //LoadDataTable(dataTableName);
             }
 
             // Preload dictionaries
-            LoadDictionary("Default");
+            //LoadDictionary("Default");
 
             // Preload fonts
-            LoadFont("MainFont");
+            //LoadFont("MainFont");
         }
 
         private void LoadConfig(string configName)
@@ -106,7 +117,7 @@ namespace Game
                 (assetName, asset, duration, userData) =>
                 {
                     m_LoadedFlag[Utility.Text.Format("Font.{0}", fontName)] = true;
-                    //UGuiForm.SetMainFont((Font)asset);
+                    UIBase.SetMainFont((Font)asset);
                     Log.Info("Load font '{0}' OK.", fontName);
                 },
 

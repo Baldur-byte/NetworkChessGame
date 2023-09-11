@@ -1,3 +1,13 @@
+﻿//@LeeTools
+//------------------------
+//Filename：AssetUtility.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 20:23:59
+//Function：Nothing
+//------------------------
+
 using GameFramework;
 using UnityGameFramework.Runtime;
 
@@ -48,6 +58,11 @@ namespace Game
         public static string GetUIFormAsset(string assetName)
         {
             return Utility.Text.Format("Assets/GameMain/UI/UIForms/{0}.prefab", assetName);
+        }
+
+        public static string GetUIFormAsset(UIFormId uiFormId)
+        {
+            return Utility.Text.Format("Assets/GameMain/UI/UIForms/UI{0}Form.prefab", uiFormId);
         }
     }
 }

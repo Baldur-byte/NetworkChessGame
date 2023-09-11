@@ -1,3 +1,13 @@
+﻿//@LeeTools
+//------------------------
+//Filename：BuiltinDataComponent.cs
+//Auther：auus
+//Device：DESKTOP-DFRI604
+//Email：346679447@qq.com
+//CreateDate：2023/09/11 17:27:55
+//Function：Nothing
+//------------------------
+
 using GameFramework;
 using UnityGameFramework.Runtime;
 

@@ -1,3 +1,13 @@
+ï»¿//@LeeTools
+//------------------------
+//Filenameï¼šNetworkUtils.cs
+//Autherï¼šauus
+//Deviceï¼šDESKTOP-DFRI604
+//Emailï¼š346679447@qq.com
+//CreateDateï¼š2023/09/11 20:26:14
+//Functionï¼šNothing
+//------------------------
+
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -7,7 +17,7 @@ using System.Text;
 public static class NetworkUtils
 {
 
-    //Èç¹ûÎïÌå±ê¼ÇÎª[serializable] ÔòÖ´ĞĞĞòÁĞ»¯£¬·ñÔò·µ»Ø¿Õ
+    //å¦‚æœç‰©ä½“æ ‡è®°ä¸º[serializable] åˆ™æ‰§è¡Œåºåˆ—åŒ–ï¼Œå¦åˆ™è¿”å›ç©º
     public static byte[] Serialize(object obj)
     {
         if(obj == null || !obj.GetType().IsSerializable)
@@ -21,7 +31,7 @@ public static class NetworkUtils
         }
     }
 
-    //Èç¹ûobj±»±ê¼ÇÎª[serializable]Ôò¿ÉÒÔÖ´ĞĞ·´ĞòÁĞ»¯£¬·ñÔò·µ»Ø¿Õ
+    //å¦‚æœobjè¢«æ ‡è®°ä¸º[serializable]åˆ™å¯ä»¥æ‰§è¡Œååºåˆ—åŒ–ï¼Œå¦åˆ™è¿”å›ç©º
     public static T Deserialize<T>(byte[] data) where T : class
     {
         if (data == null || !typeof(T).IsSerializable)
@@ -34,12 +44,12 @@ public static class NetworkUtils
         }
     }
 
-    //»ñÈ¡±¾»úµÄIPv4£¬»ñÈ¡Ê§°Ü·µ»Ønull
+    //è·å–æœ¬æœºçš„IPv4ï¼Œè·å–å¤±è´¥è¿”å›null
     public static string GetLocalIPv4()
     {
         string hostName = Dns.GetHostName();
         IPHostEntry iPHostEntry = Dns.GetHostEntry(hostName);
-        //´Ó IPµØÖ·ÁĞ±íÖĞÉ¸Ñ¡³ö ipv4ÀàĞÍµÄ ip
+        //ä» IPåœ°å€åˆ—è¡¨ä¸­ç­›é€‰å‡º ipv4ç±»å‹çš„ ip
         for(int i = 0; i < iPHostEntry.AddressList.Length; i++)
         {
             if (iPHostEntry.AddressList[i].AddressFamily == AddressFamily.InterNetwork)
@@ -48,13 +58,13 @@ public static class NetworkUtils
         return null;
     }
 
-    //½«±ÈÌØÊı×é×ªÎª×Ö·û´®
+    //å°†æ¯”ç‰¹æ•°ç»„è½¬ä¸ºå­—ç¬¦ä¸²
     public static string Byte2String(byte[] bytes)
     {
         return Encoding.UTF8.GetString(bytes);
     }
 
-    //½«×Ö·û´®×ªÎª±ÈÌØÊı×é
+    //å°†å­—ç¬¦ä¸²è½¬ä¸ºæ¯”ç‰¹æ•°ç»„
     public static byte[] String2Byte(string str)
     {
         return Encoding.UTF8.GetBytes(str);

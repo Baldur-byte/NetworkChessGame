@@ -1,3 +1,13 @@
+ï»¿//@LeeTools
+//------------------------
+//Filenameï¼šUIExtension.cs
+//Autherï¼šauus
+//Deviceï¼šDESKTOP-DFRI604
+//Emailï¼š346679447@qq.com
+//CreateDateï¼š2023/09/11 20:23:48
+//Functionï¼šNothing
+//------------------------
+
 using GameFramework.UI;
 using System.Collections;
 using UnityEngine;
@@ -43,7 +53,7 @@ namespace Game
 
         public static bool HasUIForm(this UIComponent uiComponent, int uiFormId, string uiGroupName = null)
         {
-            //Í¨¹ı¶Á±í»ñÈ¡id ¶ÔÓ¦µÄ½çÃæ×ÊÔ´µÄÃû³Æ
+            //é€šè¿‡è¯»è¡¨è·å–id å¯¹åº”çš„ç•Œé¢èµ„æºçš„åç§°
             string assetName = AssetUtility.GetUIFormAsset("");
             if (string.IsNullOrEmpty(uiGroupName))
             {
@@ -67,7 +77,7 @@ namespace Game
 
         public static UIBase GetUIBase(this UIComponent uiComponent, int uiFormId, string uiGroupName = null)
         {
-            //Í¨¹ı¶Á±í»ñÈ¡id ¶ÔÓ¦µÄ½çÃæ×ÊÔ´µÄÃû³Æ
+            //é€šè¿‡è¯»è¡¨è·å–id å¯¹åº”çš„ç•Œé¢èµ„æºçš„åç§°
             string assetName = AssetUtility.GetUIFormAsset("");
 
             UIForm result = null;
@@ -88,9 +98,47 @@ namespace Game
             return (UIBase)result.Logic;
         }
 
+        public static int? OpenUIForm(this UIComponent uiComponent, UIFormId uiFormId, object userData = null)
+        {
+            string assetName = AssetUtility.GetUIFormAsset(uiFormId);
+            return uiComponent.OpenUIForm(assetName, userData);
+            //return uiComponent.OpenUIForm((int)uiFormId, userData);
+        }
+
+        public static int? OpenUIForm(this UIComponent uiComponent, int uiFormId, object userData = null)
+        {
+            //é€šè¿‡è¯»è¡¨è·å–id å¯¹åº”çš„ç•Œé¢èµ„æºçš„åç§°
+            string assetName = AssetUtility.GetUIFormAsset("");
+            string groupName = "Default";
+            return uiComponent.OpenUIForm(assetName, groupName, Constant.AssetPriority.UIFormAsset, userData);
+        }
+
+        public static int? OpenUIForm(this UIComponent uiComponent, string assetName, object userData = null)
+        {
+            string groupName = "Default";
+            return uiComponent.OpenUIForm(assetName, groupName, Constant.AssetPriority.UIFormAsset, userData);
+        }
+
         public static void CloseUIForm(this UIComponent uiComponent, UIBase uiBase)
         {
             uiComponent.CloseUIForm(uiBase.UIForm);
+        }
+
+        public static void OpenDialog(this UIComponent uiComponent, DialogParams dialogParams)
+        {
+            if (((ProcedureBase)GameRuntime.Procedure.CurrentProcedure).UseNativeDialog)
+            {
+                OpenNativeDialog(dialogParams);
+            }
+            else
+            {
+                uiComponent.OpenUIForm(UIFormId.DialogForm, dialogParams);
+            }
+        }
+
+        public static void OpenNativeDialog(DialogParams dialogParams)
+        {
+
         }
     }
 }
