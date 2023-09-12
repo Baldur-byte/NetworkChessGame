@@ -35,15 +35,15 @@ namespace Game
 
             m_UpdateResourcesComplete = false;
 
-            m_UpdateResourceCount = procedureOwner.GetData<VarInt32>(Constant.FsmDataKey.UpdateResourceCount).Value;
+            m_UpdateResourceCount = procedureOwner.GetData<VarInt32>(Constant.ProcedureData.UpdateResourceCount).Value;
             m_UpdateResourceTotalCompressedLength =
-                procedureOwner.GetData<VarInt64>(Constant.FsmDataKey.UpdateResourceTotalCompressedLength).Value;
+                procedureOwner.GetData<VarInt64>(Constant.ProcedureData.UpdateResourceTotalCompressedLength).Value;
             m_UpdateResourceSuccessCount = 0;
             m_UpdateLengthData.Clear();
             m_UpdateResourceForm = null;
 
-            procedureOwner.RemoveData(Constant.FsmDataKey.UpdateResourceCount);
-            procedureOwner.RemoveData(Constant.FsmDataKey.UpdateResourceTotalCompressedLength);
+            procedureOwner.RemoveData(Constant.ProcedureData.UpdateResourceCount);
+            procedureOwner.RemoveData(Constant.ProcedureData.UpdateResourceTotalCompressedLength);
 
             GameRuntime.Event.Subscribe(ResourceUpdateStartEventArgs.EventId, OnResourceUpdateStart);
             GameRuntime.Event.Subscribe(ResourceUpdateChangedEventArgs.EventId, OnResourceUpdateChanged);

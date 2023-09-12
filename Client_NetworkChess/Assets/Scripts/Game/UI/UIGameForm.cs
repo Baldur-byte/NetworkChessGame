@@ -11,6 +11,17 @@ namespace Game
 {
     public class UIGameForm : UIBase
     {
-        
+        private ProcedureGame m_ProcedureGame = null;
+
+        protected override void OnOpen(object userData)
+        {
+            base.OnOpen(userData);
+            m_ProcedureGame = (ProcedureGame)userData;
+        }
+
+        protected override void OnClose(bool isShutdown, object userData)
+        {
+            base.OnClose(isShutdown, userData);
+        }
     }
 }

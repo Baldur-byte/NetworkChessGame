@@ -68,7 +68,7 @@ namespace Game
                 }
             }
 
-            procedureOwner.SetData<VarInt32>(Constant.FsmDataKey.NextSceneId, (VarInt32)(int)SceneType.Login);
+            procedureOwner.SetData<VarInt32>(Constant.ProcedureData.NextSceneId, (VarInt32)(int)SceneType.Login);
             ChangeState<ProcedureChangeScene>(procedureOwner);
         }
         private void PreloadResources()

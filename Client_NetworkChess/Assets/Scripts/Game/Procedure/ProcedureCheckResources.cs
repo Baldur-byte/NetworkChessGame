@@ -43,8 +43,8 @@ namespace Game
             {
                 if (m_NeedUpdateResources)
                 {
-                    procedureOwner.SetData<VarInt32>(Constant.FsmDataKey.UpdateResourceCount, m_UpdateResourceCount);
-                    procedureOwner.SetData<VarInt64>(Constant.FsmDataKey.UpdateResourceTotalCompressedLength, m_UpdateResourceTotalCompressedLength);
+                    procedureOwner.SetData<VarInt32>(Constant.ProcedureData.UpdateResourceCount, m_UpdateResourceCount);
+                    procedureOwner.SetData<VarInt64>(Constant.ProcedureData.UpdateResourceTotalCompressedLength, m_UpdateResourceTotalCompressedLength);
                     ChangeState<ProcedureUpdateResources>(procedureOwner);
                 }
                 else

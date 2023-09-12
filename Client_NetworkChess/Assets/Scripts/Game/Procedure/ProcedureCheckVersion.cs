@@ -57,10 +57,10 @@ namespace Game
 
             if (m_NeedUpdateVersion)
             {
-                procedureOwner.SetData<VarInt32>(Constant.FsmDataKey.VersionListLength, m_VersionInfo.VersionListLength);
-                procedureOwner.SetData<VarInt32>(Constant.FsmDataKey.VersionListHashCode, m_VersionInfo.VersionListHashCode);
-                procedureOwner.SetData<VarInt32>(Constant.FsmDataKey.VersionListCompressedLength, m_VersionInfo.VersionListCompressedLength);
-                procedureOwner.SetData<VarInt32>(Constant.FsmDataKey.VersionListCompressedHashCode, m_VersionInfo.VersionListCompressedHashCode);
+                procedureOwner.SetData<VarInt32>(Constant.ProcedureData.VersionListLength, m_VersionInfo.VersionListLength);
+                procedureOwner.SetData<VarInt32>(Constant.ProcedureData.VersionListHashCode, m_VersionInfo.VersionListHashCode);
+                procedureOwner.SetData<VarInt32>(Constant.ProcedureData.VersionListCompressedLength, m_VersionInfo.VersionListCompressedLength);
+                procedureOwner.SetData<VarInt32>(Constant.ProcedureData.VersionListCompressedHashCode, m_VersionInfo.VersionListCompressedHashCode);
                 ChangeState<ProcedureUpdateVersion>(procedureOwner);
             }
             else

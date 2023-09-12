@@ -28,8 +28,18 @@ namespace Game
         LoginForm = 2,
 
         /// <summary>
+        /// 注册界面
+        /// </summary>
+        RegisterForm = 3,
+
+        /// <summary>
         /// 大厅界面
         /// </summary>
-        LobbyForm = 3,
+        LobbyForm = 4,
+
+        /// <summary>
+        /// 游戏界面
+        /// </summary>
+        GameForm = 5,
     }
 }

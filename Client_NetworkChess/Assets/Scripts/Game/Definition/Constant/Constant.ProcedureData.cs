@@ -1,6 +1,6 @@
 ﻿//@LeeTools
 //------------------------
-//Filename：Constant.FsmDataKey.cs
+//Filename：Constant.ProcedureData.cs
 //Auther：auus
 //Device：DESKTOP-DFRI604
 //Email：346679447@qq.com
@@ -12,7 +12,7 @@ namespace Game
 {
     public static partial class Constant
     {
-        public static class FsmDataKey
+        public static class ProcedureData
         {
             public const string NextSceneId = "NextSceneId";
 

@@ -37,15 +37,15 @@ namespace Game
             m_UpdateVersionComplete = false;
 
             GameRuntime.Resource.UpdateVersionList(
-                procedureOwner.GetData<VarInt32>(Constant.FsmDataKey.VersionListLength),
-                procedureOwner.GetData<VarInt32>(Constant.FsmDataKey.VersionListHashCode),
-                procedureOwner.GetData<VarInt32>(Constant.FsmDataKey.VersionListCompressedLength),
-                procedureOwner.GetData<VarInt32>(Constant.FsmDataKey.VersionListCompressedHashCode),
+                procedureOwner.GetData<VarInt32>(Constant.ProcedureData.VersionListLength),
+                procedureOwner.GetData<VarInt32>(Constant.ProcedureData.VersionListHashCode),
+                procedureOwner.GetData<VarInt32>(Constant.ProcedureData.VersionListCompressedLength),
+                procedureOwner.GetData<VarInt32>(Constant.ProcedureData.VersionListCompressedHashCode),
                 m_UpdateVersionListCallbacks);
-            procedureOwner.RemoveData(Constant.FsmDataKey.VersionListLength);
-            procedureOwner.RemoveData(Constant.FsmDataKey.VersionListHashCode);
-            procedureOwner.RemoveData(Constant.FsmDataKey.VersionListCompressedLength);
-            procedureOwner.RemoveData(Constant.FsmDataKey.VersionListCompressedHashCode);
+            procedureOwner.RemoveData(Constant.ProcedureData.VersionListLength);
+            procedureOwner.RemoveData(Constant.ProcedureData.VersionListHashCode);
+            procedureOwner.RemoveData(Constant.ProcedureData.VersionListCompressedLength);
+            procedureOwner.RemoveData(Constant.ProcedureData.VersionListCompressedHashCode);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)

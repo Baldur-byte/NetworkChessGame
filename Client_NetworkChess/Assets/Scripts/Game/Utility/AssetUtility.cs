@@ -62,7 +62,7 @@ namespace Game
 
         public static string GetUIFormAsset(UIFormId uiFormId)
         {
-            return Utility.Text.Format("Assets/GameMain/UI/UIForms/UI{0}Form.prefab", uiFormId);
+            return Utility.Text.Format("Assets/GameMain/UI/UIForms/UI{0}.prefab", uiFormId);
         }
     }
 }

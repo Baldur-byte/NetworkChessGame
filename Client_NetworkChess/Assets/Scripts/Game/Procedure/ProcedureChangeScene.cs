@@ -51,7 +51,7 @@ namespace Game
             //还原游戏速度
             GameRuntime.Base.ResetNormalGameSpeed();
 
-            m_TargetSceneType = (SceneType)procedureOwner.GetData<VarInt32>(Constant.FsmDataKey.NextSceneId).Value;
+            m_TargetSceneType = (SceneType)procedureOwner.GetData<VarInt32>(Constant.ProcedureData.NextSceneId).Value;
 
             //加载场景
             GameRuntime.Scene.LoadScene(AssetUtility.GetSceneAsset(m_TargetSceneType.ToString()), Constant.AssetPriority.SceneAsset, this);
