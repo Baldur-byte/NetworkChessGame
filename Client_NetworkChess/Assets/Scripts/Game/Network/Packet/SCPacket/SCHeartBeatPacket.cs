@@ -21,6 +21,8 @@ namespace Game
 
         public long ServerTime => (Message as SCHeartBeat).ServerTime;
 
+        public override byte[] Bytes => throw new System.NotImplementedException();
+
         public override void Clear()
         {
         }

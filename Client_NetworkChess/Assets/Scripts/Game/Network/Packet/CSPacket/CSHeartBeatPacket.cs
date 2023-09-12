@@ -18,7 +18,7 @@ namespace Game
 
         public override int Id => throw new System.NotImplementedException();
 
-        public override byte[] GetBytes => throw new System.NotImplementedException();
+        public override byte[] Bytes => throw new System.NotImplementedException();
 
         public override void Clear()
         {

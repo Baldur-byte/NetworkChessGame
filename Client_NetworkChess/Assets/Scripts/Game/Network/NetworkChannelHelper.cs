@@ -125,10 +125,12 @@ namespace Game
             m_CachedStream.SetLength(m_CachedStream.Capacity); // 此行防止 Array.Copy 的数据无法写入
             m_CachedStream.Position = 0L;
 
-            CSPacketHeader packetHeader = ReferencePool.Acquire<CSPacketHeader>();
-            packetHeader.Id = packetImpl.Id;
+            //CSPacketHeader packetHeader = ReferencePool.Acquire<CSPacketHeader>();
+            PacketMessge(m_CachedStream, packetImpl);
 
-             return true;
+            m_CachedStream.WriteTo(destination);
+
+            return true;
         }
 
         public Packet DeserializePacket(IPacketHeader packetHeader, Stream source, out object customErrorData)
@@ -181,16 +183,19 @@ namespace Game
             Log.Info("Network channel '{0}' custom error, local address '{1}', remote address '{2}'.", ne.NetworkChannel.Name, ne.NetworkChannel.Socket.LocalEndPoint.ToString(), ne.NetworkChannel.Socket.RemoteEndPoint.ToString());
         }
 
-        private void PacketMessge(MemoryStream destination, PacketHeaderBase packetHeader, PacketBase packetBase)
+        private void PacketMessge(MemoryStream destination, PacketBase packetBase)
         {
             byte[] message = packetBase.Bytes;
 
             byte[] data = null;
             data.AddRange(BitConverter.GetBytes((int)packetBase.PacketType));
             data.AddRange(BitConverter.GetBytes(packetBase.Id));
-            data.AddRange(BitConverter.GetBytes(packetHeader.PacketLength));
-            data.AddRange(BitConverter.GetBytes(packetHeader.IsValid));
-            data.AddRange();
+            //data.AddRange(BitConverter.GetBytes(packetHeader.PacketLength));
+            //data.AddRange(BitConverter.GetBytes(packetHeader.IsValid));
+            data.AddRange(BitConverter.GetBytes(message.Length));
+            data.AddRange(message);
+
+            destination.Write(data);
         }
     }
 }
