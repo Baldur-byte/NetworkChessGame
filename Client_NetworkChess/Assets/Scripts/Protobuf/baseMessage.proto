@@ -1,0 +1,36 @@
+syntax = "proto3";
+package protocol;
+import "roleMessage.proto";
+
+//登陆C->S
+message Login10001{
+        string userId=1; 
+        int32 os=2;
+	string version=3;
+}
+
+//登陆返回S->C
+message Login10002{
+   roleInfo roleInfo=1;
+}
+
+//心跳C->S
+message Ping10005{
+       
+}
+
+//心跳返回S->C
+message Pong10006{
+
+}
+
+
+
+//断线重连C->S
+message Connection10007{
+      string userId=1;
+}
+
+//断线重连S->C
+message Connection10008{
+}

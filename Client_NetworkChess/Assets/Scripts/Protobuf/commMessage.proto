@@ -1,0 +1,13 @@
+syntax = "proto3";
+package protocol;
+
+
+//主动推送错误码消息
+message ErrorCode10010{
+          int32 errorCode=1;  //错误码
+}
+
+//推送时间
+message ServerTime10012{
+          int64 serverTime=1;  //服务器时间
+}
