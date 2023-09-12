@@ -1,0 +1,42 @@
+syntax = "proto3";
+package protocol;
+
+message CSAddFriend{
+
+}
+
+message SCAddFriend{
+
+}
+
+message CSGetFriendList{
+
+}
+
+message SCGetFriendList{
+
+}
+
+message CSGetFriendInfo{
+
+}
+
+message SCGetFriendInfo{
+
+}
+
+message CSGetFriendRequestList{
+
+}
+
+message SCGetFriendRequestList{
+
+}
+
+message CSRemoveFriend{
+
+}
+
+message SCRemoveFriend{
+    
+}

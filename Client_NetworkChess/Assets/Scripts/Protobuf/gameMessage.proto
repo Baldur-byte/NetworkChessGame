@@ -1,0 +1,18 @@
+syntax = "proto3";
+package protocol;
+
+message CSStartGame{
+
+}
+
+message SCStartGame{
+
+}
+
+message CSExitGame{
+
+}
+
+message SCExitGame{
+    
+}

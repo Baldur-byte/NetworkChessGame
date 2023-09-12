@@ -1,0 +1,42 @@
+syntax = "proto3";
+package protocol;
+
+
+message PlayerInfo{
+  string userId = 1;
+  string name=2;
+  bool gender = 3;
+  string picUrl=4;
+}
+
+message CSGetPlayerInfo{
+
+}
+
+message SCGetPlayerInfo{
+
+}
+
+message CSGetPlayerList{
+
+}
+
+message SCGetPlayerList{
+
+}
+
+message CSUpdatePlayerInfo{
+
+}
+
+message SCUpdatePlayerInfo{
+
+}
+
+message CSUpdatePlayerState{
+
+}
+
+message SCUpdatePlayerState{
+  
+}

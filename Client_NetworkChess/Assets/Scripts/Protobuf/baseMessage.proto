@@ -1,36 +1,29 @@
 syntax = "proto3";
 package protocol;
-import "roleMessage.proto";
+import "playerMessage.proto";
 
-//登陆C->S
-message Login10001{
+message CSHeartBeat{
+       
+}
+
+//心跳返回S->C
+message SCHeartBeat{
+        int64 ServerTime = 1;
+}
+
+message CSLogin{
         string userId=1; 
         int32 os=2;
 	string version=3;
 }
 
-//登陆返回S->C
-message Login10002{
-   roleInfo roleInfo=1;
+message SCLogin{
 }
 
-//心跳C->S
-message Ping10005{
-       
-}
-
-//心跳返回S->C
-message Pong10006{
+message CSRegister{
 
 }
 
+message SCRegister{
 
-
-//断线重连C->S
-message Connection10007{
-      string userId=1;
-}
-
-//断线重连S->C
-message Connection10008{
 }

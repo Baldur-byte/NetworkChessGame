@@ -1,0 +1,70 @@
+syntax = "proto3";
+package protocol;
+
+message RoomInfo{
+
+}
+
+message CSGetRoomList{
+
+}
+
+message SCGetRoomList{
+    
+}
+
+message CSGetRoomInfo{
+
+}
+
+message SCGetRoomInfo{
+
+}
+
+message CSGetRoomPlayerList{
+
+}
+
+message SCGetRoomPlayerList{
+
+}
+
+message CSUpdateRoomInfo{
+
+}
+
+message SCUpdateRoomInfo{
+
+}
+
+message CSUpdateRoomState{
+
+}
+
+message SCUpdateRoomState{
+
+}
+
+message CSCreateRoom{
+
+}
+
+message SCCreateRoom{
+
+}
+
+message CSJoinRoom{
+
+}
+
+message SCJoinRoom{
+
+}
+
+message CSLeaveRoom{
+
+}
+
+message SCLeaveRoom{
+    
+}
