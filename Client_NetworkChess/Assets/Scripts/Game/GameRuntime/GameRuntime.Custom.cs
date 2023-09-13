@@ -31,10 +31,17 @@ namespace Game
             private set; 
         }
 
+        public static ProtobufComponent Protobuf
+        {
+            get; 
+            private set; 
+        }
+
         private static void InitCustomComponents()
         {
             BuiltinData = UnityGameFramework.Runtime.GameEntry.GetComponent<BuiltinDataComponent>();
             UIFormTemplate = UnityGameFramework.Runtime.GameEntry.GetComponent<UIFormTemplate>();
+            Protobuf = UnityGameFramework.Runtime.GameEntry.GetComponent<ProtobufComponent>();
         }
 
         private static void InitCustomDebuggers()

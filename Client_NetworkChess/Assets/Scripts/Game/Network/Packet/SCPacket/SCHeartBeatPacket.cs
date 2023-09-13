@@ -17,7 +17,11 @@ namespace Game
     {
         public override int Id => (int)PacketId.SCHeartBeat;
 
-        public override IMessage Message => throw new System.NotImplementedException();
+        public override IMessage Message 
+        {
+            get => new SCHeartBeat();
+            set => throw new System.NotImplementedException();
+        }
 
         public long ServerTime => (Message as SCHeartBeat).ServerTime;
 

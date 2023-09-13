@@ -9,7 +9,6 @@
 //------------------------
 using GameFramework.Network;
 using Google.Protobuf;
-using System.Net.Sockets;
 
 namespace Game
 {
@@ -23,6 +22,7 @@ namespace Game
         public abstract IMessage Message
         {
             get;
+            set;
         }
 
         public abstract byte[] Bytes

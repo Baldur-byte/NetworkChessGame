@@ -14,9 +14,13 @@ namespace Game
 {
     public class CSHeartBeatPacket : CSPacketBase
     {
-        public override IMessage Message => throw new System.NotImplementedException();
-
         public override int Id => throw new System.NotImplementedException();
+
+        public override IMessage Message
+        {
+            get => throw new System.NotImplementedException();
+            set => throw new System.NotImplementedException();
+        }
 
         public override byte[] Bytes => throw new System.NotImplementedException();
 

@@ -45,6 +45,9 @@ namespace Game
             // 默认字典：加载默认字典文件 Assets/GameMain/Configs/DefaultDictionary.xml
             // 此字典文件记录了资源更新前使用的各种语言的字符串，会随 App 一起发布，故不可更新
             GameRuntime.BuiltinData.InitDefaultDictionary();
+
+            // 初始化 Protobuf
+            GameRuntime.Protobuf.InitProtobuf();
         }
 
         // 每次轮询执行。
