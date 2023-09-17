@@ -8,8 +8,7 @@
 //Function：Nothing
 //------------------------
 
-using System.Collections;
-using System.Collections.Generic;
+using ChessGame;
 using UnityEngine;
 
 namespace Game
@@ -37,11 +36,25 @@ namespace Game
             private set; 
         }
 
+        public static ChessLogicComponent ChessLogic
+        {
+            get;
+            private set;
+        }
+
+        public static PlayerComponent Player
+        {
+            get;
+            private set;
+        }
+
         private static void InitCustomComponents()
         {
             BuiltinData = UnityGameFramework.Runtime.GameEntry.GetComponent<BuiltinDataComponent>();
             UIFormTemplate = UnityGameFramework.Runtime.GameEntry.GetComponent<UIFormTemplate>();
             Protobuf = UnityGameFramework.Runtime.GameEntry.GetComponent<ProtobufComponent>();
+            ChessLogic = UnityGameFramework.Runtime.GameEntry.GetComponent<ChessLogicComponent>();
+            Player = UnityGameFramework.Runtime.GameEntry.GetComponent<PlayerComponent>();
         }
 
         private static void InitCustomDebuggers()

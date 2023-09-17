@@ -82,6 +82,7 @@ namespace Game
 
             m_CachedCanvas = gameObject.GetOrAddComponent<Canvas>();
             m_CachedCanvas.overrideSorting = true;
+            //m_CachedCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             OriginalDepth = m_CachedCanvas.sortingOrder;
 
             m_CanvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
@@ -94,13 +95,16 @@ namespace Game
 
             gameObject.GetOrAddComponent<GraphicRaycaster>();
 
-            Text[] texts = gameObject.GetComponentsInChildren<Text>(true);
-            foreach(Text text in texts)
+            if(s_MainFont != null)
             {
-                text.font = s_MainFont;
-                if (string.IsNullOrEmpty(text.text))
+                Text[] texts = gameObject.GetComponentsInChildren<Text>(true);
+                foreach (Text text in texts)
                 {
-                    text.text = GameRuntime.Localization.GetString(text.text);
+                    text.font = s_MainFont;
+                    if (string.IsNullOrEmpty(text.text))
+                    {
+                        text.text = GameRuntime.Localization.GetString(text.text);
+                    }
                 }
             }
         }

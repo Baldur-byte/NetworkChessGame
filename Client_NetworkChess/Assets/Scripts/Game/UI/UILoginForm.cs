@@ -36,6 +36,8 @@ namespace Game
 
         private ProcedureLogin m_ProcedureLogin = null;
 
+        private float m_MessageFadeTime = 0f;
+
         protected override void OnOpen(object userData)
         {
             base.OnOpen(userData);
@@ -62,13 +64,29 @@ namespace Game
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
+            m_MessageFadeTime -= elapseSeconds;
+            if (m_MessageFadeTime < 0f)
+            {
+                m_Message.gameObject.SetActive(false);
+                m_MessageFadeTime = 0f;
+            }
+        }
+
+        private void ShowMessage(string message, float messageShowTime = 3f)
+        {
+            if (m_Message != null)
+            {
+                m_Message.text = message;
+            }
+            m_Message.gameObject.SetActive(true);
+            m_MessageFadeTime = messageShowTime;
         }
 
         public void OnLoginButtonClick()
         {
             if (string.IsNullOrEmpty(m_UserName.text) || string.IsNullOrEmpty(m_Password.text))
             {
-                m_Message.text = "用户名或密码不能为空";
+                ShowMessage("用户名或密码不能为空");
                 return;
             }
             m_ProcedureLogin.Login(m_UserName.text, m_Password.text);
@@ -78,7 +96,7 @@ namespace Game
         {
             if (string.IsNullOrEmpty(m_UserName.text) || string.IsNullOrEmpty(m_Password.text))
             {
-                m_Message.text = "用户名或密码不能为空";
+                ShowMessage("用户名或密码不能为空");
                 return;
             }
             m_ProcedureLogin.Register(m_UserName.text, m_Password.text);

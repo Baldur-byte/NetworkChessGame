@@ -37,6 +37,7 @@ namespace Game
         {
             m_CachedCanvas = gameObject.GetOrAddComponent<Canvas>();
             gameObject.GetOrAddComponent<GraphicRaycaster>();
+            m_CachedCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
         }
 
         private void Start()
