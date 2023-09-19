@@ -13,17 +13,43 @@ message SCHeartBeat{
 
 message CSLogin{
         string userId=1; 
-        int32 os=2;
+        string password=2;
 	string version=3;
 }
 
 message SCLogin{
+        bool result=1;
+        PlayerInfo info=2;
 }
 
 message CSRegister{
-
+        string userId = 1;
+        string userName=2;
+        string password=3;
+	string version=4;
 }
 
 message SCRegister{
+        bool result=1;
+}
 
+message CSLogout{
+        string userId=1;
+}
+
+message SCLogout{
+        bool result=1;
+}
+
+message CSAccountInfo{
+        string userId=1;
+}
+
+message SCAccountInfo{
+        bool result=1;
+        PlayerInfo info=2;
+}
+
+message CSGetUserInfo{
+        string userId=1;
 }
